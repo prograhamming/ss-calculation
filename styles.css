@@ -1,0 +1,107 @@
+/* CSS VARIABLES */
+:root {
+    --form-gray: #D7DDE0;
+    --main-gray: #B3B7BA;
+    --calc-btn-hover: #383A3B;
+    --yearly-calc: #15B330;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Lato', sans-serif; 
+}
+
+.title-sub-text {
+    color: var(--main-gray);
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+    
+.div1 { grid-area: 1 / 1 / 2 / 5; }
+.div2 { grid-area: 2 / 1 / 3 / 5; }
+
+.calculation-form {
+    border-radius: 4px;
+    padding: 10px;
+    height: fit-content;
+    background-color: var(--form-gray);
+}
+
+.calc-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: var(--main-gray);
+    border-color: var(--main-gray);
+    color: white;
+    cursor: pointer;
+}
+
+.calc-btn:hover {
+    background-color: var(--calc-btn-hover);
+    border-color: var(--calc-btn-hover);
+    color: white;
+}
+
+.income-summary {
+    background-color: var(--form-gray);
+}
+
+.new-income-title-sub-text {
+    color: var(--main-gray);
+}
+
+.yearly-stats {
+    display: flex;
+    flex-direction: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.yearly-total-money, .yearly-total-percent {
+    background-color: var(--yearly-calc);
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 4px;
+}
+
+.footer {
+    text-align: center;
+    width: 75%;
+}
+
+.red_txt2 {
+    color: red;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    body {
+        height: 1000px;
+        width: 800px;
+    }
+
+    .calculation-form {
+        border-radius: 4px;
+        padding: 10px;
+        height: fit-content;
+        background-color: var(--form-gray);
+        margin-right: 50px;
+    }
+
+    .yearly-stats {
+        display: flex;
+        flex-direction: wrap;
+        justify-content: space-between;
+        margin-right: -30px;
+    }
+
+}

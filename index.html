@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+</head>
+<body class="container">
+    <header>
+        <h1><span class="title-sub-text">profit</span> calculator</h1>
+        <p>Fill out the form below to see how much more you can earn when you rent a salon suite.</p>
+    </header>
+    <section class="row">
+        <div class="calculation-form col-sm-4">
+            <form role="form" id="calc-form-group" class="justify-content">
+                <div class="mb-3">
+                    <label for="sr_serviceWeekly" class="form-label">Your Weekly Service Income:</label>
+                    <input type="" class="form-control" id="sr_serviceWeekly" name="sr_serviceWeekly" placeholder="5,000" value="" placeholder>
+                </div>
+                <div class="mb-3">
+                    <label for="sr_serviceRevenue" class="form-label">Your Commission on Service Tickets:</label>
+                    <input type="text" class="form-control" id="sr_serviceRevenue" name="sr_serviceRevenue" placeholder="20 (percentage as whole #)" value="">
+                </div>
+                <div class="mb-3">
+                    <label for="sr_productSales" class="form-label">Estimated Weekly Retail Product Sales:</label>
+                    <input type="text" class="form-control" id="sr_productSales" name="sr_productSales" placeholder="750" value="">
+                </div>
+                <div class="mb-3">
+                    <label for="sr_productsEarn" class="form-label">Your Commission on Retail Product:</label>
+                    <input type="text" class="form-control" id="sr_productsEarn" name="sr_productsEarn" placeholder="10 (percentage as whole #)" value="">
+                </div>
+                <div class="mb-3">
+                    <label for="sr_productsEarn" class="form-label">Salon Republic Weekly Rent:</label>
+                    <input type="text" class="form-control" id="sr_weeklyRent" name="sr_weeklyRent" placeholder="400" value="" >
+                    </div>
+                <button type="button" class="btn btn-primary calc-btn" id="calculate-btn">Calculate</button>
+            </form>
+        </div>
+        <div class="income-container col-sm-4">
+            <div class="current-income">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Your Current Income</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Service Income:</td>
+                            <td id="current_TotalServiceRevenue">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Salon Owner Keeps:</td>
+                            <td id="current_OwnerRetains">$0</td>
+                        </tr>
+                        <tr>
+                            <td class="red_txt2">Your Service Profits:</td>
+                            <td id="current_ServiceProfit" class="red_txt2">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Product Sales:</td>
+                            <td id="current_ProductSales">$0</td>
+                        </tr>
+                        <tr>
+                            <td class="red_txt2">Your Product Profits:</td>
+                            <td id="current_ProductProfits" class="red_txt2">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Current Weekly Income:</td>
+                            <td id="current_WeeklyIncome">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Current Monthly Income:</td>
+                            <td id="current_MonthlyIncome">$0</td>
+                        </tr>
+                        <tr class="income-summary" id="current-income-summary">
+                            <td>Current Yearly Income:</td>
+                            <td id="current_AnnualIncome">$0</td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+            <div class="new-income">
+                <table class="table">
+                    <thead>
+                        <tr>
+                        <th scope="col">Your <span class="new-income-title-sub-text">New</span> Income</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Service Income:</td>
+                            <td id="new_TotalServiceRevenue">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Salon Suite Weekly Rent:</td>
+                            <td id="new_WeeklyRent">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Estimated Business Expenses:<br>
+                                (professional products, booking apps, etc)
+                            </td>
+                            <td id="new_BusinessExpenses">$0</td>
+                        </tr>
+                        <tr>
+                            <td class="red_txt2">Your Service Profits:</td>
+                            <td id="new_ServiceProfit" class="red_txt2">$0</td>
+                        </tr>
+                        <tr>
+                            <td>Product Sales:</td>
+                            <td id="new_ProductSales">$0</td>
+                        </tr>
+                        <tr>
+                            <td class="red_txt2">Your Product Profits:</td>
+                            <td id="new_ProductProfits" class="red_txt2">$0</td>
+                        </tr>
+                        <tr>
+                            <td>New Estimated Weekly Income:</td>
+                            <td id="new_WeeklyIncome">$0</td>
+                        </tr>
+                        <tr>
+                            <td>New Estimated Monthly Income:</td>
+                            <td id="new_MonthlyIncome">$0</td>
+                        </tr>
+                        <tr class="income-summary" id="new-income-summary">
+                            <td>New Estimated Yearly Income:</td>
+                            <td id="new_AnnualIncome">$0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="yearly-total-money col-sm-4 p-3 m-3">
+                <p class="final_amount ">$0</p>
+                <p>MORE MONEY YOU EARN YEARLY</p>
+            </div>
+            <div class="yearly-total-percent  col-sm-4 p-3 m-3">
+                <p><span class="final_percentage">0</span>%</p>
+                <p>INCREASE IN YEARLY PROFIT</p>
+            </div>
+        </div>
+        <p class="footer"><strong>* for estimating purposes only.</strong></p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="accounting.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
